@@ -31,7 +31,10 @@ public class DialogueTrigger : MonoBehaviour {
     }
     void OnTriggerExit(Collider other)
     {
-        m_Animation.Play("idle");
+        if (m_Animation)
+        {
+            m_Animation.Play("idle");
+        }
     }
     public void TriggerDialogue()
     {

@@ -36,14 +36,14 @@ public class StoryManager : MonoBehaviour {
                 miguel2.SetActive(true);
                 Debug.Log("Los dos hermanos son reemplazados por las versiones con nuevo dialogo");
                 return;
-            case "Miguel":
+            case "Miguel2":
                 progress += 1;
                 Debug.Log("Finalizado quest de tablas.");
                 return;
             case "Hechicera":
                 progress += 1;
-                Destroy(manuel1);
-                Destroy(miguel1);
+                Destroy(manuel2);
+                Destroy(miguel2);
                 Debug.Log("Inicia quest de viento/cristal");
                 return;
             case "Cristal":

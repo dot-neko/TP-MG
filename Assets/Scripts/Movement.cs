@@ -10,16 +10,18 @@ public class Movement : MonoBehaviour
     public float speed = 3.0F;
     public float rotateSpeed = 3.0F;
     public float jumpSpeed = 0.05F;
-    public float runSpeed = 1.00F;
+    public float runSpeed = 2.5F;
     public float windSpeed = 1.00F;
     bool wind;
     float curSpeed;
 
     // Animacion
     private Animation m_Animation;
+    private Rigidbody rb;
     private void Start()
     {
         m_Animation = GetComponentInChildren<Animation>();
+        rb = GetComponentInChildren<Rigidbody>();
 
     }
     void FixedUpdate()
@@ -36,8 +38,9 @@ public class Movement : MonoBehaviour
         if (wind)
         {
             windSpeed = Random.Range(-0.1f, 0.8f);
+            rb.AddForce(-6, 0, 0);
         }
-		Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
 		Vector3 up = transform.TransformDirection(Vector3.up);
 
         curSpeed = speed * moveAxis * runSpeed;
@@ -55,7 +58,7 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetButton("Run"))
             {
-                runSpeed = 1.5F;
+                runSpeed = 2.5F;
                 m_Animation.CrossFade("RunSW");
             }
             else
