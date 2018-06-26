@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour {
     public GameObject crater;
+    public Movement playerone;
+    public Animation playerone_anim;
     private Transform parent;
     public bool runonce, inrange;
     
@@ -12,6 +14,8 @@ public class Explosion : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player" && !runonce)
         {
+            playerone = other.GetComponent<Movement>();
+            playerone_anim = other.gameObject.GetComponentInChildren<Animation>();
             Explode();
             runonce = true;
             inrange = true;
@@ -25,10 +29,9 @@ public class Explosion : MonoBehaviour {
     {
         var track = GetComponentInChildren<ParticleSystem>();
         track.Play();
-        Invoke("Crater", 3.2f);
-        Invoke("Death", 3.0f);
-        
-        
+        Invoke("Crater", 1.6f);
+        Invoke("Death", 1.5f);
+
     }
     void Crater()
     {
@@ -38,9 +41,16 @@ public class Explosion : MonoBehaviour {
     {
         if (inrange)
         {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            playerone.Death();
+            playerone_anim.CrossFade("DeathSW");
+            Invoke("Reload", 1.7f);
         }
+    }
+    void Reload()
+    {
+        playerone_anim.Stop();
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
 }

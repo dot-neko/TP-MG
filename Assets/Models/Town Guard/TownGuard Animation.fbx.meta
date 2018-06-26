@@ -148,7 +148,7 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 2
+    animationWrapMode: 1
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
@@ -267,7 +267,7 @@ ModelImporter:
     - serializedVersion: 16
       name: DeadGuard
       takeName: Take 001
-      firstFrame: 240
+      firstFrame: 221
       lastFrame: 240
       wrapMode: 1
       orientationOffsetY: 0

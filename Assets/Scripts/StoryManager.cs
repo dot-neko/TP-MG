@@ -57,6 +57,7 @@ public class StoryManager : MonoBehaviour {
                 progress += 1;
                 Destroy(extra1);
                 extra2.SetActive(true);
+                extra2.GetComponentInChildren<Animation>().Play("DeadGuard");
                 Debug.Log("Fin quest de viento/cristal");
                 return;
             case "PepePlaya":
