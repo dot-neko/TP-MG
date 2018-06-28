@@ -7,6 +7,7 @@ public class StoryManager : MonoBehaviour {
     public GameObject lara, pepe, manuel1, miguel1, manuel2, miguel2, hechicera1, hechicera2, pepeplaya, pepeplayaexit, extra1, extra2;
     public bool first, tablas, cristales, escape;
     public int progress = 1;
+    public Animator animator;
 
 
     public void Update_Story(Transform character)
@@ -58,11 +59,13 @@ public class StoryManager : MonoBehaviour {
                 Destroy(extra1);
                 extra2.SetActive(true);
                 extra2.GetComponentInChildren<Animation>().Play("DeadGuard");
+                pepeplaya.SetActive(true);
                 Debug.Log("Fin quest de viento/cristal");
                 return;
             case "PepePlaya":
                 progress += 1;
                 Destroy(hechicera1);
+                escape = true;
                 Debug.Log("Inicia quest final anillo");
                 return;
             case "Anillo":
@@ -73,6 +76,7 @@ public class StoryManager : MonoBehaviour {
                 return;
             case "PepePlayaExit":
                 progress += 1;
+                animator.SetBool("IsOpen", true);
                 Debug.Log("Fin quest final anillo. Fin del juego.");
                 return;
         }   
