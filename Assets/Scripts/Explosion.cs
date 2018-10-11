@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour {
     public GameObject crater;
-    public Movement playerone;
-    public Animation playerone_anim;
+    private Movement playerone;
+    private Animation playerone_anim;
     private Transform parent;
     public bool runonce, inrange;
     
