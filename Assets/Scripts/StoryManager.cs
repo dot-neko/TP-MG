@@ -52,7 +52,7 @@ public class StoryManager : MonoBehaviour {
                 cristales = true;
                 Destroy(hechicera1);
                 hechicera2.SetActive(true);
-                Debug.Log("La hechicera es reempplazada por la nueva version");
+                Debug.Log("La hechicera es reemplazada por la nueva version");
                 return;
             case "Hechicera Salida":
                 progress += 1;
