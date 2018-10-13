@@ -5,6 +5,9 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Windows crap
+desktop.ini
+
 # Visual Studio cache directory
 .vs/
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class StoryManager : MonoBehaviour {
                 return;
             case "Pepe":
                 progress += 1;
+                Destroy(lara);
                 return;
             case "Manuel":
                 progress += 1;
@@ -39,6 +41,7 @@ public class StoryManager : MonoBehaviour {
                 return;
             case "Miguel2":
                 progress += 1;
+                hechicera1.SetActive(true);
                 Debug.Log("Finalizado quest de tablas.");
                 return;
             case "Hechicera":
@@ -64,7 +67,7 @@ public class StoryManager : MonoBehaviour {
                 return;
             case "PepePlaya":
                 progress += 1;
-                Destroy(hechicera1);
+                Destroy(hechicera2);
                 escape = true;
                 Debug.Log("Inicia quest final anillo");
                 return;
@@ -77,6 +80,9 @@ public class StoryManager : MonoBehaviour {
             case "PepePlayaExit":
                 progress += 1;
                 animator.SetBool("IsOpen", true);
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.UnloadSceneAsync(scene.name);
+                SceneManager.LoadScene("endgame");
                 Debug.Log("Fin quest final anillo. Fin del juego.");
                 return;
         }   
