@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour {
 
-    public GameObject lara, pepe, manuel1, miguel1, manuel2, miguel2, hechicera1, hechicera2, pepeplaya, pepeplayaexit, extra1, extra2;
-    public bool first, tablas, cristales, escape;
+    public GameObject lara, pepe, manuel1, miguel1, tablas, manuel2, miguel2, hechicera1, cristal, hechicera2, pepeplaya, pepeplayaexit, extra1, extra2, area_b1;
+    public bool first, escape;
     public int progress = 1;
     public Animator animator;
 
@@ -28,11 +28,11 @@ public class StoryManager : MonoBehaviour {
             case "Manuel":
                 progress += 1;
                 Destroy(pepe);
+                tablas.SetActive(true);
                 Debug.Log("Pepe desaparece del mapa.");
                 return;
             case "Tablas":
                 progress += 1;
-                tablas = true;
                 Destroy(manuel1);
                 Destroy(miguel1);
                 manuel2.SetActive(true);
@@ -48,11 +48,12 @@ public class StoryManager : MonoBehaviour {
                 progress += 1;
                 Destroy(manuel2);
                 Destroy(miguel2);
+                cristal.SetActive(true);
                 Debug.Log("Inicia quest de viento/cristal");
                 return;
             case "Cristal":
                 progress += 1;
-                cristales = true;
+                Destroy(cristal);
                 Destroy(hechicera1);
                 hechicera2.SetActive(true);
                 Debug.Log("La hechicera es reemplazada por la nueva version");
@@ -63,6 +64,8 @@ public class StoryManager : MonoBehaviour {
                 extra2.SetActive(true);
                 extra2.GetComponentInChildren<Animation>().Play("DeadGuard");
                 pepeplaya.SetActive(true);
+                /*En teoría con esto se deshabilita el trigger dentro del collider del GO*/
+                (area_b1.GetComponent<SphereCollider>()).enabled=false;
                 Debug.Log("Fin quest de viento/cristal");
                 return;
             case "PepePlaya":
