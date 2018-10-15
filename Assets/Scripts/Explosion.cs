@@ -7,7 +7,6 @@ public class Explosion : MonoBehaviour {
     public GameObject crater;
     private Movement playerone;
     private Animation playerone_anim;
-    private Transform parent;
     public bool runonce, inrange;
     
     void OnTriggerEnter(Collider other)
@@ -49,9 +48,7 @@ public class Explosion : MonoBehaviour {
     void Reload()
     {
         playerone_anim.Stop();
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.UnloadSceneAsync(scene.name);
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene("endgame");
     }
 
 }

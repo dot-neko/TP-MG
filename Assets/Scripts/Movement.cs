@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public float jumpSpeed = 0.05F;
     public float runSpeed = 1.00F;
     public float windSpeed = 1.00F;
+    float nspeed = 1.00F, pspeed = 1.50F;
     bool wind, death;
     
 
@@ -62,12 +63,12 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetButton("Run"))
             {
-                runSpeed = 1.5F;
+                runSpeed = pspeed;
                 m_Animation.CrossFade("RunSW");
             }
             else
             {
-                runSpeed = 1.00F;
+                runSpeed = nspeed;
                 m_Animation.CrossFade("WalkSW");
             }
         }
@@ -99,5 +100,10 @@ public class Movement : MonoBehaviour
     public void Death()
     {
         death = true;
+    }
+    public void Powerup()
+        /*Aumenta la velocidad a la hora de correr*/
+    {
+        pspeed = pspeed * 1.5f;
     }
 }
