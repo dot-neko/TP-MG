@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour {
 
-    public GameObject lara, pepe, manuel1, miguel1, tablas, manuel2, miguel2, hechicera1, cristal, hechicera2, pepeplaya, pepeplayaexit, extra1, extra2, area_b1;
+    public GameObject lara, pepe, manuel1, miguel1, tablas, manuel2, miguel2, hechicera1, cristal, hechicera2, pepeplaya,anillo,pepeplayaexit, extra1, extra2, area_b1;
     public bool first, escape;
     public int progress = 1;
-    public Animator animator;
 
 
     public void Update_Story(Transform character)
@@ -35,6 +34,7 @@ public class StoryManager : MonoBehaviour {
                 progress += 1;
                 Destroy(manuel1);
                 Destroy(miguel1);
+                Destroy(tablas);
                 manuel2.SetActive(true);
                 miguel2.SetActive(true);
                 Debug.Log("Los dos hermanos son reemplazados por las versiones con nuevo dialogo");
@@ -71,20 +71,20 @@ public class StoryManager : MonoBehaviour {
             case "PepePlaya":
                 progress += 1;
                 Destroy(hechicera2);
+                anillo.SetActive(true);
                 escape = true;
                 Debug.Log("Inicia quest final anillo");
                 return;
             case "Anillo":
                 progress += 1;
                 Destroy(pepeplaya);
+                Destroy(anillo);
                 pepeplayaexit.SetActive(true);
                 Debug.Log("Inicia quest final anillo");
                 return;
             case "PepePlayaExit":
                 progress += 1;
-                animator.SetBool("IsOpen", true);
                 Scene scene = SceneManager.GetActiveScene();
-                SceneManager.UnloadSceneAsync(scene.name);
                 SceneManager.LoadScene("endgame");
                 Debug.Log("Fin quest final anillo. Fin del juego.");
                 return;

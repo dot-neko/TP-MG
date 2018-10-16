@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620142185610224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.268, z: 0}
+  m_LocalPosition: {x: 0, y: -1.811, z: 0}
   m_LocalScale: {x: 0.5, y: 0.001, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4829779049035620}
@@ -98,9 +98,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1974182214333520}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -21.402884, y: 2.6590657, z: 136.20378}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: -2.6671982, y: 2.659066, z: 56.855736}
+  m_LocalScale: {x: 1.5625, y: 1.5625, z: 1.5625}
   m_Children:
   - {fileID: 4748670564139524}
   - {fileID: 4242220830122266}
@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9247cf9051ecf024db12d1103106e5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runonce: 0
   self: {fileID: 1974182214333520}
 --- !u!135 &135578036941226224
 SphereCollider:
@@ -327,7 +326,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -752800890
+  randomSeed: -589435084
   InitialModule:
     serializedVersion: 3
     enabled: 1
