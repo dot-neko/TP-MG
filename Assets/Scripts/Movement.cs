@@ -104,6 +104,6 @@ public class Movement : MonoBehaviour
     public void Powerup()
         /*Aumenta la velocidad a la hora de correr*/
     {
-        pspeed = pspeed * 1.5f;
+        pspeed = pspeed * 1.3f;
     }
 }

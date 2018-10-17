@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour {
 
-    public GameObject lara, pepe, manuel1, miguel1, tablas, manuel2, miguel2, hechicera1, cristal, hechicera2, area_block_2, area_block_3, pepeplaya,anillo,pepeplayaexit, extra0,extra1, extra2, area_b1;
+    public GameObject lara, pepe, manuel1, miguel1, tablas, block, manuel2, miguel2, hechicera1, cristal, hechicera2, area_block_2, area_block_3, pepeplaya,anillo,pepeplayaexit, extra0,extra1, extra2, area_b1;
     public bool first, escape;
     public int progress = 1;
 
@@ -44,6 +44,7 @@ public class StoryManager : MonoBehaviour {
             case "Miguel2":
                 progress += 1;
                 hechicera1.SetActive(true);
+                block.SetActive(true);
                 Debug.Log("Finalizado quest de tablas.");
                 return;
             case "Hechicera":

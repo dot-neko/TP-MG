@@ -26,8 +26,10 @@ public class Explosion : MonoBehaviour {
     }
     void Explode()
     {
+        var audio = GetComponent<AudioSource>();
         var track = GetComponentInChildren<ParticleSystem>();
         track.Play();
+        audio.Play();
         Invoke("Crater", 1.6f);
         Invoke("Death", 1.5f);
 
