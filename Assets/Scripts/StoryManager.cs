@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour {
 
-    public GameObject lara, pepe, manuel1, miguel1, tablas, manuel2, miguel2, hechicera1, cristal, hechicera2, area_block_2, pepeplaya,anillo,pepeplayaexit, extra1, extra2, area_b1;
+    public GameObject lara, pepe, manuel1, miguel1, tablas, manuel2, miguel2, hechicera1, cristal, hechicera2, area_block_2, area_block_3, pepeplaya,anillo,pepeplayaexit, extra0,extra1, extra2, area_b1;
     public bool first, escape;
     public int progress = 1;
 
@@ -23,6 +23,8 @@ public class StoryManager : MonoBehaviour {
             case "Pepe":
                 progress += 1;
                 Destroy(lara);
+                Destroy(extra0);
+                area_block_3.SetActive(true);
                 return;
             case "Manuel":
                 progress += 1;
@@ -85,7 +87,6 @@ public class StoryManager : MonoBehaviour {
                 return;
             case "PepePlayaExit":
                 progress += 1;
-                Scene scene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene("endgame");
                 Debug.Log("Fin quest final anillo. Fin del juego.");
                 return;

@@ -7,17 +7,17 @@ public class PowerCollider : MonoBehaviour {
     private Movement playerone;
     private bool runonce;
     public GameObject self;
-    private Animation rotation_anim;
+    private Animator rotation_anim;
     private void Start()
     {
-        rotation_anim=self.GetComponent<Animation>();
-        rotation_anim.Play();
+        rotation_anim=GetComponent<Animator>();
+        rotation_anim.Play(0);
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && !runonce)
         {
-            playerone = other.GetComponent<Movement>();
+            playerone = other.GetComponentInChildren<Movement>();
             runonce = true;
             GetPower();
         }
@@ -25,11 +25,15 @@ public class PowerCollider : MonoBehaviour {
     void GetPower()
     {
         /*Esto se puede mejorar con un segundo sistema que nos indique que se consiguio algo*/
-        var particles = self.GetComponent<ParticleSystem>();
-        particles.Stop();
+        var particles = (self.GetComponentInChildren<ParticleSystem>()).main;
+        var sound=self.GetComponentInChildren<AudioSource>();
+        sound.Play(0);
+        /*rotation_anim.Play(1);*/
+        particles.loop=false;
         playerone.Powerup();
-        Invoke("DeleteSelf", 0.5f);
+        Invoke("DeleteSelf", 4.0f);
     }
+
     void DeleteSelf()
     {
         Destroy(self);
