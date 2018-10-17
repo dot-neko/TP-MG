@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour {
 
-    public GameObject lara, pepe, manuel1, miguel1, tablas, manuel2, miguel2, hechicera1, cristal, hechicera2, pepeplaya,anillo,pepeplayaexit, extra1, extra2, area_b1;
+    public GameObject lara, pepe, manuel1, miguel1, tablas, manuel2, miguel2, hechicera1, cristal, hechicera2, area_block_2, pepeplaya,anillo,pepeplayaexit, extra1, extra2, area_b1;
     public bool first, escape;
     public int progress = 1;
 
@@ -64,6 +64,7 @@ public class StoryManager : MonoBehaviour {
                 extra2.SetActive(true);
                 extra2.GetComponentInChildren<Animation>().Play("DeadGuard");
                 pepeplaya.SetActive(true);
+                Destroy(area_block_2);
                 /*En teoría con esto se deshabilita el trigger dentro del collider del GO*/
                 (area_b1.GetComponent<SphereCollider>()).enabled=false;
                 Debug.Log("Fin quest de viento/cristal");
